@@ -1,5 +1,4 @@
-
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-info',
@@ -9,4 +8,11 @@ import { Component, Input } from '@angular/core';
 export class InfoComponent {
    @Input("info") information:string=""
    @Input("aclass") alerttheme=""
+   @Output() senseit:EventEmitter<string>=new EventEmitter<string>();
+
+   communicate()
+   {
+     
+      this.senseit.emit(this.information)
+   }
 }
